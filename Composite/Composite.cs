@@ -47,5 +47,15 @@ namespace Composite
             }
             return count;
         }
+
+        public override bool IsBinary()
+        {
+            if ((childs.Count == 2) || (childs.Count == 0))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

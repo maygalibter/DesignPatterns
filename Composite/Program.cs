@@ -38,6 +38,25 @@ namespace Composite
             Console.WriteLine($"Leaf number of container 1 : { container1.CountLeaf() } \n");
             Console.WriteLine($"Leaf number of container 2 : { container2.CountLeaf() } \n");
             Console.WriteLine($"Leaf number of Triangle 1 :  { t1.CountLeaf() } \n");
+
+            Console.WriteLine("Is binary root : " + IsBinary(root));
+            Console.WriteLine("Is binary container 1: " + IsBinary(container1));
+
+        }
+
+        static bool IsBinary(Component c)
+        {
+            if (!c.IsBinary())
+            {
+                return false;
+            }
+
+            if (c.GetChilds() == null || c.GetChilds().Count == 0)
+            {
+                return true;
+            }
+
+            return IsBinary(c.GetChilds()[0]) && IsBinary(c.GetChilds()[1]);
         }
     }
 }
